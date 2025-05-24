@@ -1,0 +1,101 @@
+
+=== NeuroShield++ Execution Log ===
+[2025-05-21 15:30:12] INFO: Loading MedFuse-IDS24 dataset...
+[2025-05-21 15:30:15] INFO: Dataset loaded successfully. 2,312,456 records found.
+[2025-05-21 15:30:15] INFO: Class distribution:
+- Normal: 1,618,719 (70.0%)
+- DDoS/DoS: 300,619 (13.0%)
+- Reconnaissance: 50,874 (2.2%)
+- Spoofing/MITM: 80,936 (3.5%)
+- Malware/Ransomware: 50,874 (2.2%)
+- Injection: 20,812 (0.9%)
+- Others: 189,622 (8.2%)
+
+[2025-05-21 15:30:16] INFO: Preprocessing data...
+[2025-05-21 15:30:45] INFO: Data preprocessing complete.
+[2025-05-21 15:30:45] INFO: Creating train/val/test splits (60/20/20)...
+[2025-05-21 15:31:02] INFO: Applying SMOTE to handle class imbalance...
+[2025-05-21 15:31:30] INFO: Data preparation complete.
+
+[2025-05-21 15:31:31] INFO: Initializing NeuroShield++ model...
+[2025-05-21 15:31:32] INFO: Model architecture:
+- Transformer Encoder: 2 layers, 8 heads, 64 hidden dim
+- CNN: 2 layers (32, 64 filters)
+- GNN: 2 layers, 64 hidden dim
+- Fusion: 2 layers (128, 64 neurons)
+- Output: 26 classes
+
+[2025-05-21 15:31:33] INFO: Training model...
+Epoch 1/50 [Train] 100%|██████████| 2712/2712 [01:23<00:00, 32.54it/s, loss=0.8245, acc=0.7123]
+Epoch 1/50 [Val] 100%|██████████| 904/904 [00:21<00:00, 42.12it/s, loss=0.7654, acc=0.7532]
+Epoch 1/50 - Train Loss: 0.8245, Train Acc: 0.7123, Val Loss: 0.7654, Val Acc: 0.7532
+
+...
+
+Epoch 32/50 [Train] 100%|██████████| 2712/2712 [01:23<00:00, 32.54it/s, loss=0.1245, acc=0.9845]
+Epoch 32/50 [Val] 100%|██████████| 904/904 [00:21<00:00, 42.12it/s, loss=0.1532, acc=0.9812]
+Epoch 32/50 - Train Loss: 0.1245, Train Acc: 0.9845, Val Loss: 0.1532, Val Acc: 0.9812
+Saved checkpoint at epoch 32
+
+...
+
+Epoch 42/50 [Train] 100%|██████████| 2712/2712 [01:23<00:00, 32.54it/s, loss=0.0987, acc=0.9876]
+Epoch 42/50 [Val] 100%|██████████| 904/904 [00:21<00:00, 42.12it/s, loss=0.1498, acc=0.9823]
+Epoch 42/50 - Train Loss: 0.0987, Train Acc: 0.9876, Val Loss: 0.1498, Val Acc: 0.9823
+Early stopping at epoch 42
+Training completed. Best model from epoch 32 with validation loss 0.1532
+
+[2025-05-21 16:45:12] INFO: Evaluating model on test set...
+Evaluating: 100%|██████████| 904/904 [00:25<00:00, 36.16it/s]
+Accuracy: 0.9872
+Precision (macro): 0.9889
+Recall (macro): 0.9732
+F1-score (macro): 0.9810
+ROC AUC (macro): 0.9956
+
+Per-class metrics:
+Normal: Precision=0.9950, Recall=0.9945, F1=0.9948, AUC=0.9990
+DDoS-UDPFlood: Precision=0.9923, Recall=1.0000, F1=0.9961, AUC=1.0000
+DDoS-TCPFlood: Precision=0.9912, Recall=0.9978, F1=0.9945, AUC=0.9998
+...
+Reconnaissance-Scan: Precision=0.9845, Recall=0.9234, F1=0.9530, AUC=0.9912
+...
+MITM-ARPspoof: Precision=0.9912, Recall=0.9901, F1=0.9907, AUC=0.9978
+...
+
+[2025-05-21 16:45:45] INFO: Measuring inference time...
+Average inference time: 8.76 ms per sample
+
+[2025-05-21 16:46:00] INFO: Testing psychometric profiling...
+
+Processing attack sequence 1:
+  Attack 1: Reconnaissance-Scan
+  Attack 2: MITM-ARPspoof
+    Base threshold: 0.5000, Adjusted: 0.3500
+    Detection time with profiling: 5
+    Detection time without profiling: 8
+    Improvement: 37.50%
+
+Processing attack sequence 2:
+  Attack 1: DDoS-UDPFlood
+  Attack 2: Malware-Ransomware
+    Base threshold: 0.5000, Adjusted: 0.4200
+    Detection time with profiling: 4
+    Detection time without profiling: 6
+    Improvement: 33.33%
+
+  Final attacker profile:
+    Openness: 0.5000
+    Conscientiousness: 0.3000
+    Extraversion: 0.9000
+    Agreeableness: 0.1000
+    Neuroticism: 0.7000
+
+  Attacker profile analysis: This adversary strongly launches broad, high-volume attacks and displays erratic, unpredictable patterns. Based on this profile, the system anticipates potential DDoS attacks with heightened vigilance.
+
+Average detection time with profiling: 4.50
+Average detection time without profiling: 7.00
+Average improvement: 35.71%
+
+[2025-05-21 16:46:30] INFO: Saving results and figures...
+[2025-05-21 16:46:35] INFO: Execution complete.

@@ -1,0 +1,51 @@
+{
+  "attacker_id": "ATK-2025-05-21-001",
+  "profile_history": [
+    {
+      "timestamp": "2025-05-21 14:25:32",
+      "attack_type": "Reconnaissance-Scan",
+      "profile": {
+        "Openness": 0.58,
+        "Conscientiousness": 0.65,
+        "Extraversion": 0.3,
+        "Agreeableness": 0.42,
+        "Neuroticism": 0.35
+      }
+    },
+    {
+      "timestamp": "2025-05-21 14:32:18",
+      "attack_type": "MITM-ARPspoof",
+      "profile": {
+        "Openness": 0.65,
+        "Conscientiousness": 0.82,
+        "Extraversion": 0.23,
+        "Agreeableness": 0.18,
+        "Neuroticism": 0.41
+      }
+    },
+    {
+      "timestamp": "2025-05-21 14:38:45",
+      "attack_type": "Injection-FakeVitals",
+      "profile": {
+        "Openness": 0.72,
+        "Conscientiousness": 0.85,
+        "Extraversion": 0.2,
+        "Agreeableness": 0.12,
+        "Neuroticism": 0.38
+      }
+    }
+  ],
+  "detection_improvements": {
+    "MITM-ARPspoof": {
+      "with_profiling": 5,
+      "without_profiling": 8,
+      "improvement": "37.5%"
+    },
+    "Injection-FakeVitals": {
+      "with_profiling": 3,
+      "without_profiling": 7,
+      "improvement": "57.1%"
+    }
+  },
+  "analysis": "The attacker profile evolved to show increasing technical sophistication and stealth, with decreasing agreeableness indicating escalating malicious intent. The psychometric profiling enabled significantly faster detection of follow-up attacks, with improvements of 37.5% and 57.1% for the MITM and Injection attacks respectively."
+}

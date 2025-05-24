@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{Performance of NeuroShield++ vs. baseline models on test set (multi-class classification of 25 attack types + normal). Metrics are in \%.}
+\label{tab:performance_comparison}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Model} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{F1 (macro)} \\
+\hline
+Random Forest & 95.2 & 95.5 & 81.3 & 86.9 \\
+XGBoost & 96.0 & 94.1 & 87.6 & 90.7 \\
+CNN (only) & 97.1 & 96.8 & 93.2 & 94.9 \\
+CNN+LSTM & 98.0 & 97.5 & 95.6 & 96.5 \\
+Transformer (only) & 98.4 & 98.1 & 96.8 & 97.4 \\
+\textbf{NeuroShield++ (Ours)} & 98.7 & 98.9 & 97.3 & 98.1 \\
+NeuroShield++ w/o GNN & 98.5 & 98.7 & 96.9 & 97.6 \\
+\hline
+\end{tabular}
+\end{table}

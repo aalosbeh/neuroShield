@@ -1,0 +1,25 @@
+{
+  "timestamp": "2025-05-21 14:32:18",
+  "alert_id": "NS-2025-05-21-143218-001",
+  "alert_type": "MITM-ARPspoof",
+  "confidence": 0.978,
+  "source_ip": "10.0.0.15",
+  "target_ip": "192.168.2.25",
+  "target_device": "ICU-Bed2-Monitor",
+  "severity": "High",
+  "description": "Detected ARP spoofing attack targeting ICU bed monitor. Attacker is attempting to intercept communications between the monitor and nurse station.",
+  "psychometric_profile": {
+    "Openness": 0.65,
+    "Conscientiousness": 0.82,
+    "Extraversion": 0.23,
+    "Agreeableness": 0.18,
+    "Neuroticism": 0.41
+  },
+  "profile_description": "Attacker profile analysis: This adversary strongly employs stealthy techniques to avoid detection and demonstrates technical sophistication. Based on this profile, the system anticipates potential Injection attacks with heightened vigilance.",
+  "recommended_actions": [
+    "Isolate affected device from network",
+    "Reset ARP cache on all devices in ICU subnet",
+    "Verify integrity of patient data",
+    "Enable strict ARP inspection on ICU network switches"
+  ]
+}
